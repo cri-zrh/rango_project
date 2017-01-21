@@ -1,8 +1,14 @@
 <!DOCTYPE html>
+
+{% load staticfiles %}
+
 <html>
 
 	<head>
 		<title>Rango</title>
+		<!-- load css and js -->
+		<link rel="stylesheet" href="{% static "css/base.css" %}" />
+		<script src="{% static "js/jquery.js" %}"></script>
 	</head>
 
 	<body>
@@ -12,7 +18,9 @@
 			<strong>{{ boldmessage }}</strong><br />
 		</div>
 		<div>
-			<a hrefC="/rango/about/">About</a><br />
+			<a href="/rango/about/">About</a><br />
+			<img src="{% static "images/bolivia.jpg" %}"
+				 alt="Picture of Bolivia" />
 		</div>
 	</body>
 

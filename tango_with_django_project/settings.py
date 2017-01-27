@@ -14,13 +14,12 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# Reference templates directory
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-# Reference to static directory
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
-
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -45,8 +44,7 @@ INSTALLED_APPS = [
     'rango',
 ]
 
-# 20.01.17 changed form MIDDLEWARE to MIDDLEWARE_CLASSES. This seems to fix the /admin/ error and I'm able to access the db interface
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,7 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media'
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -126,8 +124,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/media/'
-
-# Create new data structure
 STATICFILES_DIRS = [STATIC_DIR, ]

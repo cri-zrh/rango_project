@@ -32,16 +32,17 @@ def populate():
 	  	{"title":"Flask",
 	  	 "url":"http://flask.pocoo.org"} ]
 
-	cats = {"Python": {"pages": python_pages},
-	  		  "Django": {"pages": django_pages},
-	  		  "Other Frameworks": {"pages": other_pages} }
+	cats = {"Python": {"pages": python_pages, "views": 128, "likes": 64},
+	  		  "Django": {"pages": django_pages, "views": 64, "likes": 32},
+	  		  "Other Frameworks": {"pages": other_pages, "views": 32, "likes": 16}, }
 
 # add them to the dictionaries above.
 
 
 # go through cats dictionary, add each category  and then add associated pages for that directory
 	for cat, cat_data in cats.iteritems():
-		c = add_cat(cat)
+		#c = add_cat(cat)
+		c = add_cat(cat, cat_data["views"], cat_data["likes"])
 		for p in cat_data["pages"]:
 			add_page(c, p["title"], p["url"])
 
@@ -57,28 +58,13 @@ def add_page(cat, title, url, views=0):
 	p.save()
 	return p
 
-def add_cat(name):
+def add_cat(name, views=0, likes=0):
 	c = Category.objects.get_or_create(name=name)[0]
-	c.views=0
-	c.likes=0
+	c.views=views
+	c.likes=likes
 	c.save()
 	return c
 
-# Set default views and likes for category Python
-def add_cat(Python):
-	python = Category.objects.get_or_create(name="Python")[0]
-	python.views=64
-	python.likes=32
-	python.save()
-	return python
-
-# Set default views and likes for category Other Frankeworks
-def add_cat(other_pages):
-	of = Category.objects.get_or_create(name="Other Frameworks")[0]
-	of.views=32
-	of.likes=16
-	of.save()
-	return of
 
 # Start execution here
 if __name__ == '__main__':

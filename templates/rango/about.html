@@ -5,24 +5,21 @@
 <html>
 
 	<head>
-		<title>Rango</title>
-		<!-- load css and js -->
+		<title>About</title>
 		<link rel="stylesheet" href="{% static "css/base.css" %}" />
 		<script src="{% static "js/jquery.js" %}"></script>
 	</head>
 
 	<body>
-		<h1>Rango says...</h1>
+		<h1>About Rango</h1>
 		<div>
-			here is the about page.	<br/>
+			This tutorial has been put together by Cristina Gassmann <br/>
 			<strong>{{ boldmessage }}</strong><br />
 		</div>
 		<div>
-		<h2>This Tutorial has been put together by Cristina</h2>
-		</div>
-		<div>
 			<a href="/rango/">Index</a><br />
-			<img src="{{ MEDIA_URL}}peru.JPG">
+			<img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
+			<img src="{{MEDIA_URL}}cat.jpg" alt="Picture of a cat"/>
 		</div>
 	</body>
 

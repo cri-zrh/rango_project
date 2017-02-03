@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
 
-<html>
+{% block title_block %}
+	About
+{% endblock %}
 
-	<head>
-		<title>About</title>
-		<link rel="stylesheet" href="{% static "css/base.css" %}" />
-		<script src="{% static "js/jquery.js" %}"></script>
-	</head>
-
-	<body>
+{% block body_block %}
 		<h1>About Rango</h1>
 		<div>
 			This tutorial has been put together by Cristina Gassmann <br/>
 			<strong>{{ boldmessage }}</strong><br />
 		</div>
 		<div>
-			<a href="/rango/">Index</a><br />
 			<img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
 			<img src="{{MEDIA_URL}}cat.jpg" alt="Picture of a cat"/>
 		</div>
-	</body>
-
-</html>
+{% endblock %}

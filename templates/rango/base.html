@@ -23,10 +23,17 @@
         {% endblock %}
     </div>
 <hr />
-    <div>
-        <li><a href="{% url 'add_category' %}">Add Category</a></li>
+    <ul>
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'restricted' %}">Restricted</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}">Sign In</a></li>
+        <li><a href="{% url 'register' %}">Sign Up</a></li>
+    {% endif %}
+        <li><a href="{% url 'add_category' %}">Add a New Category</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'index' %}">Index</a></li>
-    </div>
+    </ul>
 </body>
 </html>

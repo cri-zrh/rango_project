@@ -12,4 +12,4 @@ class CategoryAdmin(admin.ModelAdmin):
 #admin.site.register(Category)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Page, PageAdmin)
-admin.site.regiser(UserProfile)
+admin.site.register(UserProfile)

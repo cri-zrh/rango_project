@@ -17,9 +17,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+PROFILE_DIR = os.path.join(BASE_DIR, 'profile_images')
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+PROFILE_URL = 'profile_images'
+LOGIN_URL = 'rango/login/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -109,8 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Password hashes / bcrypt downloaded on 04.02.17
 
 PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.BCryptSH256PasswordHasher'
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
+
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
 ]

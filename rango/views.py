@@ -52,7 +52,14 @@ def about(request):
 		print("TEST COOKIE WORKED!")
 		request.session.delete_test_cookie()
 	context_dict = {'boldmessage': "This is the bold message."}
-	return render(request, 'rango/about.html', context=context_dict)
+
+	visitor_cookie_handler(request)
+	context_dict['visits'] = request.session['visits']
+	context_dict['last_visit'] = request.session['last_visit']
+
+	response = render(request, 'rango/about.html', context=context_dict)
+
+	return response
 
 def show_category(request, category_name_slug):
 	context_dict = {}
